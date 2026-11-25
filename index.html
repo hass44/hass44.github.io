@@ -11,13 +11,15 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232f6b4f'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23fbfaf7' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf7;--ink:#1b1b1b;--dim:#6d6a63;--rule:#e4e0d6;--green:#2f6b4f;--grey:#b9b4a8;--mark:#fff1b8}
+:root{--bg:#fbfaf7;--ink:#1b1b1b;--dim:#6d6a63;--rule:#e4e0d6;--green:#2f6b4f;--tint:#e6efe9;--grey:#b9b4a8;--mark:#fff1b8;--card:#fff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
 a{color:var(--green);text-underline-offset:3px}
-.page{max-width:880px;margin:0 auto;padding:64px 24px 88px}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:56px 24px 88px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px}
+main{min-width:0}
 header{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--ink)}
 .photo{width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;border:1px solid var(--rule)}
 h1{font:400 44px/1.05 Newsreader,serif;margin:0}
@@ -25,52 +27,120 @@ h1{font:400 44px/1.05 Newsreader,serif;margin:0}
 .contact{text-align:right;font-size:14px;line-height:1.9}
 .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
 .contact a:hover{border-color:var(--green)}
-.about{font:400 22px/1.5 Newsreader,serif;margin:36px 0 0;max-width:40em}
-.about mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit}
-.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin:18px 0 0;font:13px "IBM Plex Mono",monospace;color:var(--dim)}
+.hello{font:400 clamp(26px,3.4vw,34px)/1.3 Newsreader,serif;margin:36px 0 0;max-width:30em}
+.hello mark{background:linear-gradient(transparent 58%,var(--mark) 58%);color:inherit}
+.hello i{color:var(--green)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin:20px 0 0;font:13px "IBM Plex Mono",monospace;color:var(--dim)}
+.facts .open{color:var(--green)}
+.facts .open::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#2fa36b;margin-right:8px;vertical-align:1px}
 h2{font:500 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin:72px 0 6px}
-table{width:100%;border-collapse:collapse}
-td{vertical-align:top;padding:18px 0;border-bottom:1px solid var(--rule)}
-td.res{width:150px;padding-right:24px;font:400 28px/1.1 Newsreader,serif;color:var(--green)}
-td.res small{display:block;font:12px Inter,sans-serif;color:var(--dim);margin-top:6px}
-td h3{font-size:16px;font-weight:500;margin:0}
-td .where{font-size:13px;color:var(--dim)}
-td p{margin:6px 0 0;font-size:15px;max-width:60ch}
-td .tags{font:12px "IBM Plex Mono",monospace;color:var(--dim);margin-top:8px}
-figure{margin:16px 0 4px;padding:16px;background:#fff;border:1px solid var(--rule)}
-figure img,figure svg{display:block;width:100%;height:auto}
-figcaption{font-size:12.5px;color:var(--dim);margin-top:10px;line-height:1.5}
-svg text{font-family:Inter,sans-serif;font-size:12px;fill:var(--dim)}
-svg .val{fill:var(--ink);font-weight:500}
-svg .grp{fill:var(--ink);font-size:12.5px}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.left .logo{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:12px;color:var(--dim);line-height:1.2}
+.left .logo img{width:28px;height:28px;border-radius:6px;background:#fff;border:1px solid var(--rule);padding:3px;flex:none}
+.res{font:400 28px/1.1 Newsreader,serif;color:var(--green)}
+.res small{display:block;font:12px Inter,sans-serif;color:var(--dim);margin-top:6px}
+.row h3{font-size:16px;font-weight:600;margin:0}
+.where{font-size:13px;color:var(--dim)}
+.row p{margin:6px 0 0;font-size:15px;max-width:62ch}
+.tags{font:12px "IBM Plex Mono",monospace;color:var(--dim);margin-top:8px}
+/* slideshow */
+.show{margin:16px 0 2px;background:var(--card);border:1px solid var(--rule);border-radius:4px;outline:none}
+.show:focus-visible{border-color:var(--green)}
+.slide{padding:14px 16px 4px}
+.art{aspect-ratio:520/240;display:flex;align-items:center;justify-content:center}
+.art svg,.art img{width:100%;height:100%;object-fit:contain;display:block}
+.cap{font-size:14px;line-height:1.55;color:#3b3934;margin:10px 0 8px;min-height:4.6em}
+.cap b{font-weight:600;color:var(--ink)}
+.cap .n{font:12px "IBM Plex Mono",monospace;color:var(--green);margin-right:6px}
+.show.single .cap{min-height:0}
+.nav{display:flex;align-items:center;gap:10px;padding:8px 12px 10px 16px;border-top:1px solid var(--rule)}
+.nav button.arw{border:1px solid var(--rule);background:var(--bg);width:30px;height:30px;border-radius:50%;font-size:16px;line-height:1;color:var(--ink)}
+.nav button.arw:hover{border-color:var(--green);color:var(--green)}
+.dots{display:flex;gap:6px}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--grey)}
+.dots button.on{background:var(--green)}
+.count{font:12px "IBM Plex Mono",monospace;color:var(--dim);margin-left:auto}
+/* diagrams */
+.d text{font:15px Inter,sans-serif;fill:var(--ink)}
+.d text.m{font-size:13px;fill:var(--dim)}
+.d text.big{font:500 22px Newsreader,serif;fill:var(--green)}
+.d .bx{fill:#fff;stroke:var(--ink);stroke-width:1.2}
+.d .gx{fill:var(--tint);stroke:var(--green);stroke-width:1.2}
+.d .ln{stroke:var(--ink);stroke-width:1.2;fill:none;marker-end:url(#ar)}
+.d .sem{fill:url(#sem);stroke:#8f897d}
+.d .blob{fill:#2b2620}
+.c text{font:12px Inter,sans-serif;fill:var(--dim)}
+.c .val{fill:var(--ink);font-weight:500}
+.c .grp{fill:var(--ink);font-size:12.5px}
+/* experience */
 .cv{display:grid;grid-template-columns:150px 1fr;gap:0 24px}
-.cv time{font:13px "IBM Plex Mono",monospace;color:var(--dim);padding:14px 0;border-bottom:1px solid var(--rule)}
-.cv div{padding:14px 0;border-bottom:1px solid var(--rule)}
+.cv .when{padding:14px 0;border-bottom:1px solid var(--rule);display:flex;gap:10px;align-items:flex-start}
+.cv .when img{width:26px;height:26px;border-radius:6px;border:1px solid var(--rule);background:#fff;padding:3px;flex:none}
+.cv time{font:13px "IBM Plex Mono",monospace;color:var(--dim);padding-top:3px}
+.cv div.what{padding:14px 0;border-bottom:1px solid var(--rule)}
 .cv span{display:block;font-size:14px;color:var(--dim)}
 .margin{margin-top:72px;display:grid;grid-template-columns:150px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--ink)}
 .margin h2{margin:4px 0 0}
 .margin p{margin:0;font:400 19px/1.55 Newsreader,serif}
 .margin i{color:var(--green)}
 footer{margin-top:56px;font-size:13px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* sidebar */
+aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
+.panel{background:#1f2330;color:#f2efe6;border-radius:10px;padding:16px;font-family:"Pixelify Sans",monospace;box-shadow:0 0 0 3px #fff,0 0 0 4px #1f2330}
+.panel h4{margin:0 0 10px;font-weight:600;font-size:15px;letter-spacing:.04em;color:#ffd56a;display:flex;justify-content:space-between}
+.panel h4 span{color:#9aa3b8;font-weight:400}
+.stage{background:#2a3042;border-radius:6px;padding:10px 12px;position:relative}
+.fighter{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.fighter b{font-weight:600}
+.hp{height:7px;background:#11141c;border-radius:4px;margin:4px 0 10px;overflow:hidden}
+.hp i{display:block;height:100%;background:#5fd38d;transition:width .35s}
+.hp.low i{background:#f0b44c}.hp.crit i{background:#ef6b5b}
+.sprite{font-size:30px;text-align:center;line-height:1;margin:2px 0 6px;transition:transform .15s}
+.sprite.hit{transform:translateX(6px) rotate(6deg);filter:brightness(1.8)}
+.log{font-size:13.5px;line-height:1.4;min-height:58px;background:#11141c;border-radius:6px;padding:8px 10px;margin-top:10px;color:#e8e4d8}
+.moves{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.moves button{font-family:"Pixelify Sans",monospace;font-size:13px;background:#f2efe6;color:#1f2330;border:0;border-radius:5px;padding:8px 6px;text-align:left}
+.moves button::before{content:"▸ ";opacity:0}
+.moves button:hover::before,.moves button:focus-visible::before{opacity:1}
+.moves button:disabled{opacity:.45;cursor:default}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:#9aa3b8;margin-top:10px}
+.radio .player{aspect-ratio:16/9;background:#11141c;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.radio iframe{width:100%;height:100%;border:0;display:block}
+.radio .play{font-family:"Pixelify Sans",monospace;background:#ffd56a;color:#1f2330;border:0;border-radius:6px;padding:10px 16px;font-size:15px}
+.radio p{font-size:12.5px;color:#9aa3b8;margin:10px 0 0;line-height:1.4}
+.radio p a{color:#ffd56a}
+@media (max-width:1040px){
+  .wrap{grid-template-columns:1fr;gap:0}
+  aside{position:static;margin-top:56px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+}
 @media (max-width:640px){
-  .page{padding:40px 16px 64px}
+  .wrap{padding:40px 16px 64px}
   header{grid-template-columns:auto 1fr;gap:16px}
   .photo{width:68px;height:68px}
   .contact{grid-column:1/-1;text-align:left;display:flex;flex-wrap:wrap;gap:4px 16px}
   .contact br{display:none}
   h1{font-size:34px}
-  table,tbody,tr,td{display:block}
-  td.res{width:auto;border:0;padding:18px 0 0}
-  td.res:empty{display:none}
-  figure{padding:10px;overflow-x:auto}
-  figure svg{min-width:480px}
+  .row{grid-template-columns:minmax(0,1fr);gap:6px}
+  .row>div,.show,.slide{min-width:0}
+  .left{display:flex;align-items:center;gap:14px}
+  .left .logo{margin:0}
+  .slide{padding:10px 10px 2px}
+  .art{aspect-ratio:auto;overflow-x:auto;display:block}
+  .art svg{min-width:470px}
+  .art img{height:auto}
   .cv,.margin{grid-template-columns:1fr;gap:0}
-  .cv time{border:0;padding-bottom:0}
+  .cv .when{border:0;padding-bottom:0}
 }
 </style>
 </head>
 <body>
-<div class="page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1b1b1b"/></marker>
+  <pattern id="sem" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#d6d1c6"/><rect x="2" width="4" height="10" fill="#8f897d"/></pattern>
+</defs></svg>
+
+<div class="wrap">
+<main>
   <header>
     <img class="photo" src="assets/photo.png" alt="Hassaan Ibrahim" width="88" height="88">
     <div>
@@ -85,16 +155,148 @@ footer{margin-top:56px;font-size:13px;color:var(--dim);display:flex;justify-cont
     </nav>
   </header>
 
-  <p class="about">Two years of ML in industry: <mark>a vision model in production with Micron Technology</mark>, ML running on-site in customer fabs, and LLM agents for chip manufacturing. M.Sc. at TU Dresden, November 2026.</p>
-  <div class="facts"><span>Available Dec 2026</span><span>Willing to relocate</span><span>English C2 · Urdu · German A2</span></div>
+  <p class="hello">I teach models to <mark>spot broken chips</mark>, find one frame among 80 surgery videos, and settle arguments about <i>how</i> AI should fix code.</p>
+  <div class="facts"><span class="open">Open to full-time roles from Dec 2026</span><span>Willing to relocate</span><span>English C2 · Urdu · German A2</span></div>
 
   <h2>Results</h2>
-  <table>
-    <tr><td class="res">5 releases<small>in production</small></td><td><h3>Wafer defect detection</h3><div class="where">KLA, with Micron Technology</div><p>Label-free autoencoder that flags defective CD-SEM images and groups them by likely root cause, running on customers' CPU-only fab hardware.</p><div class="tags">PyTorch · Optuna · K-fold CV</div></td></tr>
-    <tr><td class="res">On-site<small>air-gapped</small></td><td><h3>LLM agents for lithography (aiLITHO)</h3><div class="where">KLA</div><p>Tools, document ingestion and evaluation for an agent platform engineers use to query manufacturing data. Self-hosted LLM on vLLM, MLflow tracing, LLM-as-judge.</p><div class="tags">LangGraph · vLLM · MLflow</div></td></tr>
-    <tr><td class="res">55.2%<small>vs 34.5%, 310 bugs</small></td><td><h3>Diffusion vs autoregressive code repair</h3><div class="where">M.Sc. thesis, ScaDS.AI</div><p>A 7B code model adapted twice at matched compute on H100s. Diffusion only wins when it is given edit locations and fix lengths; without the lengths, AR leads.</p><div class="tags">Qwen2.5-Coder · FSDP · Slurm</div>
-      <figure>
-        <svg viewBox="0 0 560 172" role="img" aria-label="Bugs repaired: with lengths given, AR 34.5% and diffusion 55.2%; without lengths, AR 34.8% and diffusion 23.9%">
+
+  <!-- 1. Wafer defects -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=kla.com&amp;sz=64" alt="" loading="lazy">KLA</div><div class="res">5 releases<small>in production</small></div></div>
+    <div>
+      <h3>Wafer defect detection</h3><div class="where">KLA, with Micron Technology</div>
+      <p>Label-free autoencoder that flags defective CD-SEM images and groups them by likely root cause, running on customers' CPU-only fab hardware.</p>
+      <div class="tags">PyTorch · Optuna · K-fold CV</div>
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Wafer defect detection, step by step">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Grid of SEM images, one with a defect, reviewed by hand">
+          <g><rect class="sem" x="20" y="22" width="44" height="44"/><rect class="sem" x="72" y="22" width="44" height="44"/><rect class="sem" x="124" y="22" width="44" height="44"/><rect class="sem" x="176" y="22" width="44" height="44"/>
+          <rect class="sem" x="20" y="78" width="44" height="44"/><rect class="sem" x="72" y="78" width="44" height="44"/><rect class="sem" x="124" y="78" width="44" height="44"/><rect class="sem" x="176" y="78" width="44" height="44"/>
+          <rect class="sem" x="20" y="134" width="44" height="44"/><rect class="sem" x="72" y="134" width="44" height="44"/><rect class="sem" x="124" y="134" width="44" height="44"/><rect class="sem" x="176" y="134" width="44" height="44"/>
+          <ellipse class="blob" cx="146" cy="100" rx="8" ry="5"/></g>
+          <text class="m" x="120" y="206" text-anchor="middle">CD-SEM images of line patterns</text>
+          <path class="ln" d="M232,100 H290"/>
+          <rect class="bx" x="296" y="62" width="204" height="80" rx="6"/>
+          <text x="398" y="97" text-anchor="middle">Engineer checks</text><text x="398" y="119" text-anchor="middle">each image by hand</text>
+        </svg></div><p class="cap"><span class="n">1/4</span><b>The problem.</b> Fabs measure their chip patterns with CD-SEM images. Bad images were caught by people paging through them one at a time.</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Autoencoder: image, encoder, small code, decoder, rebuilt image">
+          <rect class="sem" x="16" y="78" width="64" height="64"/><text class="m" x="48" y="164" text-anchor="middle">image</text>
+          <path class="ln" d="M86,110 H116"/>
+          <polygon class="gx" points="122,62 212,92 212,128 122,158"/><text x="160" y="115" text-anchor="middle">encoder</text>
+          <rect class="bx" x="220" y="94" width="22" height="32"/><text class="m" x="231" y="150" text-anchor="middle">code</text>
+          <polygon class="gx" points="250,92 340,62 340,158 250,128"/><text x="302" y="115" text-anchor="middle">decoder</text>
+          <path class="ln" d="M346,110 H376"/>
+          <rect class="sem" x="382" y="78" width="64" height="64" opacity=".85"/><text class="m" x="414" y="164" text-anchor="middle">rebuilt image</text>
+          <text class="m" x="260" y="214" text-anchor="middle">Trained without labels: it only learns what normal looks like</text>
+        </svg></div><p class="cap"><span class="n">2/4</span><b>Learn normal, no labels needed.</b> A convolutional autoencoder learns to rebuild normal images. Cleaning, a masked loss and K-fold cross-validation kept it honest.</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Image minus rebuilt image gives a difference map, scored per patch, then flagged">
+          <rect class="sem" x="12" y="72" width="60" height="60"/><ellipse class="blob" cx="44" cy="100" rx="8" ry="5"/><text class="m" x="42" y="152" text-anchor="middle">image</text>
+          <text x="86" y="108" text-anchor="middle" style="font-size:22px">−</text>
+          <rect class="sem" x="100" y="72" width="60" height="60"/><text class="m" x="130" y="152" text-anchor="middle">rebuilt</text>
+          <text x="174" y="108" text-anchor="middle" style="font-size:22px">=</text>
+          <rect x="188" y="72" width="60" height="60" fill="#f4f1ea" stroke="#8f897d"/><circle cx="220" cy="100" r="10" fill="#2f6b4f" opacity=".75"/><text class="m" x="218" y="152" text-anchor="middle">difference</text>
+          <path class="ln" d="M256,102 H284"/>
+          <rect class="bx" x="290" y="77" width="104" height="50" rx="6"/><text x="342" y="107" text-anchor="middle">patch score</text>
+          <path class="ln" d="M400,102 H424"/>
+          <rect class="gx" x="430" y="77" width="80" height="50" rx="6"/><text x="470" y="107" text-anchor="middle">flagged</text>
+          <text class="m" x="260" y="206" text-anchor="middle">What the model can't rebuild is probably a defect</text>
+        </svg></div><p class="cap"><span class="n">3/4</span><b>Flag what it can't rebuild.</b> The difference between an image and its reconstruction is scored patch by patch against adaptive thresholds.</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Flagged images grouped by likely cause, running on-site, 5 releases with Micron">
+          <rect class="sem" x="16" y="30" width="44" height="44"/><ellipse class="blob" cx="38" cy="50" rx="7" ry="4"/>
+          <rect class="sem" x="16" y="96" width="44" height="44"/><rect x="26" y="114" width="24" height="6" fill="#2b2620"/>
+          <rect class="sem" x="16" y="162" width="44" height="44"/><circle class="blob" cx="44" cy="178" r="5"/>
+          <path class="ln" d="M66,118 H112"/>
+          <rect class="bx" x="118" y="34" width="150" height="40" rx="6"/><text x="193" y="59" text-anchor="middle">likely cause A</text>
+          <rect class="bx" x="118" y="98" width="150" height="40" rx="6"/><text x="193" y="123" text-anchor="middle">likely cause B</text>
+          <rect class="bx" x="118" y="162" width="150" height="40" rx="6"/><text x="193" y="187" text-anchor="middle">likely cause C</text>
+          <path class="ln" d="M276,118 H300"/>
+          <rect class="gx" x="306" y="34" width="200" height="168" rx="8"/>
+          <text x="406" y="72" text-anchor="middle">runs on-site in fabs</text><text class="m" x="406" y="94" text-anchor="middle">on CPU-only hardware</text>
+          <text class="big" x="406" y="144" text-anchor="middle">5 releases</text><text class="m" x="406" y="168" text-anchor="middle">with Micron Technology</text>
+        </svg></div><p class="cap"><span class="n">4/4</span><b>Explain it, then ship it.</b> Flagged images are grouped by likely root cause, so engineers get a reason and not just a score. I worked with Micron's engineers on their feedback over 5 releases.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. aiLITHO -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=kla.com&amp;sz=64" alt="" loading="lazy">KLA</div><div class="res">On-site<small>air-gapped</small></div></div>
+    <div>
+      <h3>LLM agents for lithography (aiLITHO)</h3><div class="where">KLA</div>
+      <p>Tools, document ingestion and evaluation for an agent platform engineers use to query manufacturing data in plain language.</p>
+      <div class="tags">LangGraph · vLLM · MLflow</div>
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="aiLITHO, step by step">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Engineer question goes to an LLM agent, which calls data queries, analysis tools and knowledge search">
+          <rect class="bx" x="10" y="88" width="122" height="64" rx="14"/><text x="71" y="116" text-anchor="middle">engineer's</text><text x="71" y="138" text-anchor="middle">question</text>
+          <path class="ln" d="M138,120 H172"/>
+          <rect class="gx" x="178" y="84" width="118" height="72" rx="6"/><text x="237" y="115" text-anchor="middle">LLM agent</text><text class="m" x="237" y="137" text-anchor="middle">self-hosted, vLLM</text>
+          <path class="ln" d="M300,108 L340,58"/><path class="ln" d="M302,120 H340"/><path class="ln" d="M300,132 L340,182"/>
+          <rect class="bx" x="346" y="34" width="160" height="42" rx="6"/><text x="426" y="60" text-anchor="middle">data queries</text>
+          <rect class="bx" x="346" y="99" width="160" height="42" rx="6"/><text x="426" y="125" text-anchor="middle">analysis tools</text>
+          <rect class="bx" x="346" y="164" width="160" height="42" rx="6"/><text x="426" y="190" text-anchor="middle">knowledge search</text>
+        </svg></div><p class="cap"><span class="n">1/3</span><b>Plain-language access.</b> Engineers ask a question, and an LLM agent picks the tools that query manufacturing data and expert knowledge. The model runs on-site, because the data never leaves the fab.</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Manuals, PDFs, slides, images and interview recordings go through an ingestion pipeline into searchable knowledge">
+          <rect class="bx" x="12" y="14" width="138" height="32" rx="5"/><text x="81" y="35" text-anchor="middle">manuals</text>
+          <rect class="bx" x="12" y="56" width="138" height="32" rx="5"/><text x="81" y="77" text-anchor="middle">PDFs</text>
+          <rect class="bx" x="12" y="98" width="138" height="32" rx="5"/><text x="81" y="119" text-anchor="middle">slides</text>
+          <rect class="bx" x="12" y="140" width="138" height="32" rx="5"/><text x="81" y="161" text-anchor="middle">images</text>
+          <rect class="bx" x="12" y="182" width="138" height="32" rx="5"/><text x="81" y="203" text-anchor="middle">expert interviews</text>
+          <path class="ln" d="M154,30 L212,108"/><path class="ln" d="M154,72 L212,112"/><path class="ln" d="M154,114 H212"/><path class="ln" d="M154,156 L212,118"/><path class="ln" d="M154,198 L212,122"/>
+          <rect class="gx" x="218" y="84" width="122" height="64" rx="6"/><text x="279" y="112" text-anchor="middle">ingestion</text><text x="279" y="134" text-anchor="middle">pipeline</text>
+          <path class="ln" d="M346,116 H380"/>
+          <rect class="bx" x="386" y="74" width="122" height="84" rx="6"/><text x="447" y="106" text-anchor="middle">searchable</text><text x="447" y="128" text-anchor="middle">knowledge</text><text class="m" x="447" y="148" text-anchor="middle">metadata kept</text>
+        </svg></div><p class="cap"><span class="n">2/3</span><b>Making knowledge searchable.</b> A multimodal pipeline turns manuals, PDFs, slides, images and recorded expert interviews into knowledge the agent can search, without losing the metadata search depends on.</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="A traced run with many repeated tool calls fills the context window; the cause is tool design; proposal is one bounded tool">
+          <text class="m" x="12" y="24">one traced run</text>
+          <rect class="bx" x="12" y="36" width="82" height="38" rx="5"/><text x="53" y="60" text-anchor="middle">question</text>
+          <g><rect class="bx" x="104" y="36" width="44" height="38" rx="5"/><rect class="bx" x="154" y="36" width="44" height="38" rx="5"/><rect class="bx" x="204" y="36" width="44" height="38" rx="5"/><rect class="bx" x="254" y="36" width="44" height="38" rx="5"/><rect class="bx" x="304" y="36" width="44" height="38" rx="5"/><rect class="bx" x="354" y="36" width="44" height="38" rx="5"/>
+          <text class="m" x="126" y="60" text-anchor="middle">call</text><text class="m" x="176" y="60" text-anchor="middle">call</text><text class="m" x="226" y="60" text-anchor="middle">call</text><text class="m" x="276" y="60" text-anchor="middle">call</text><text class="m" x="326" y="60" text-anchor="middle">call</text><text class="m" x="376" y="60" text-anchor="middle">call</text></g>
+          <rect x="412" y="36" width="96" height="38" rx="5" fill="#fbe9e6" stroke="#b5483a"/><text x="460" y="60" text-anchor="middle" style="fill:#b5483a">judge: fail</text>
+          <rect x="12" y="92" width="496" height="14" rx="3" fill="#f1eee8" stroke="#d6d1c6"/><rect x="12" y="92" width="470" height="14" rx="3" fill="#cfc8b8"/>
+          <text class="m" x="12" y="126">context window filling up with repeated results</text>
+          <path class="ln" d="M260,136 V160"/>
+          <rect class="gx" x="120" y="166" width="280" height="58" rx="6"/><text x="260" y="191" text-anchor="middle">cause: the tool design, not the model</text><text class="m" x="260" y="212" text-anchor="middle">proposal: one bounded tool, one call</text>
+        </svg></div><p class="cap"><span class="n">3/3</span><b>Measuring it.</b> Every run is traced in MLflow and scored by an LLM judge. One failing analysis turned out to be a tool-design problem, so I proposed a single bounded tool that ranks all candidates in one call.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Thesis -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=scads.ai&amp;sz=64" alt="" loading="lazy">ScaDS.AI</div><div class="res">55.2%<small>vs 34.5%, 310 bugs</small></div></div>
+    <div>
+      <h3>Diffusion vs autoregressive code repair</h3><div class="where">M.Sc. thesis, TU Dresden / ScaDS.AI</div>
+      <p>Does a diffusion model really repair code better than an autoregressive one? Only when it is told where the fix goes and how long it is.</p>
+      <div class="tags">Qwen2.5-Coder-7B · FSDP · Slurm · H100</div>
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Thesis, step by step">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Autoregressive writes tokens left to right; diffusion fills a masked span in parallel">
+          <text x="12" y="58">Autoregressive</text>
+          <g><rect x="150" y="38" width="38" height="32" rx="4" fill="#cfc8b8"/><rect x="194" y="38" width="38" height="32" rx="4" fill="#cfc8b8"/><rect x="238" y="38" width="38" height="32" rx="4" fill="#cfc8b8"/><rect x="282" y="38" width="38" height="32" rx="4" fill="#cfc8b8"/>
+          <rect class="bx" x="326" y="38" width="38" height="32" rx="4"/><rect class="bx" x="370" y="38" width="38" height="32" rx="4"/><rect class="bx" x="414" y="38" width="38" height="32" rx="4"/><rect class="bx" x="458" y="38" width="38" height="32" rx="4"/></g>
+          <path class="ln" d="M150,86 H494"/><text class="m" x="150" y="106">one token at a time, left to right</text>
+          <text x="12" y="166">Diffusion</text>
+          <g><rect x="150" y="146" width="38" height="32" rx="4" fill="#cfc8b8"/><rect x="194" y="146" width="38" height="32" rx="4" fill="#cfc8b8"/>
+          <rect class="gx" x="238" y="146" width="38" height="32" rx="4"/><rect class="gx" x="282" y="146" width="38" height="32" rx="4"/><rect class="gx" x="326" y="146" width="38" height="32" rx="4"/><rect class="gx" x="370" y="146" width="38" height="32" rx="4"/>
+          <rect x="414" y="146" width="38" height="32" rx="4" fill="#cfc8b8"/><rect x="458" y="146" width="38" height="32" rx="4" fill="#cfc8b8"/>
+          <text x="257" y="167" text-anchor="middle">?</text><text x="301" y="167" text-anchor="middle">?</text><text x="345" y="167" text-anchor="middle">?</text><text x="389" y="167" text-anchor="middle">?</text></g>
+          <text class="m" x="150" y="206">the masked span is filled all at once, using code on both sides</text>
+        </svg></div><p class="cap"><span class="n">1/3</span><b>The question.</b> AR models write code left to right. Diffusion models fill a masked gap all at once, which sounds perfect for fixing a bug in the middle of a file. Does it actually work better?</p></div>
+
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="One Qwen2.5-Coder-7B model adapted twice with the same data and compute, both tested on 310 real bugs">
+          <rect class="bx" x="160" y="12" width="200" height="46" rx="6"/><text x="260" y="41" text-anchor="middle">Qwen2.5-Coder-7B</text>
+          <path class="ln" d="M220,60 L130,106"/><path class="ln" d="M300,60 L390,106"/>
+          <text class="m" x="260" y="96" text-anchor="middle">same data, same compute</text>
+          <rect class="bx" x="40" y="110" width="180" height="48" rx="6"/><text x="130" y="139" text-anchor="middle">AR model</text>
+          <rect class="gx" x="300" y="110" width="180" height="48" rx="6"/><text x="390" y="139" text-anchor="middle">diffusion model</text>
+          <path class="ln" d="M130,160 L210,192"/><path class="ln" d="M390,160 L310,192"/>
+          <rect class="bx" x="120" y="194" width="280" height="38" rx="6"/><text x="260" y="218" text-anchor="middle">310 real multi-location bugs</text>
+        </svg></div><p class="cap"><span class="n">2/3</span><b>A fair fight.</b> I adapted one 7B model twice, once as AR and once as diffusion, with identical data and compute on H100 clusters. Both were then tested on the same 310 real bugs.</p></div>
+
+        <div class="slide"><div class="art"><svg class="c" viewBox="0 0 520 172" role="img" aria-label="Bugs repaired: with lengths given, AR 34.5% and diffusion 55.2%; without lengths, AR 34.8% and diffusion 23.9%">
           <text class="grp" x="0" y="14">Edit locations and fix lengths given</text>
           <text x="0" y="40">Autoregressive</text><rect x="110" y="28" width="190" height="16" fill="var(--grey)"/><text class="val" x="306" y="40">34.5%</text>
           <text x="0" y="62">Diffusion</text><rect x="110" y="50" width="304" height="16" fill="var(--green)"/><text class="val" x="420" y="62">55.2%</text>
@@ -102,47 +304,275 @@ footer{margin-top:56px;font-size:13px;color:var(--dim);display:flex;justify-cont
           <text x="0" y="126">Autoregressive</text><rect x="110" y="114" width="191" height="16" fill="var(--grey)"/><text class="val" x="307" y="126">34.8%</text>
           <text x="0" y="148">Diffusion</text><rect x="110" y="136" width="131" height="16" fill="var(--green)"/><text class="val" x="247" y="148">23.9%</text>
           <line x1="110" y1="22" x2="110" y2="158" stroke="var(--rule)"/>
-        </svg>
-        <figcaption>Bugs repaired out of 310 real multi-location bugs (ConDefects), Qwen2.5-Coder-7B adapted as an AR and a diffusion model on the same data and compute.</figcaption>
-      </figure>
-    </td></tr>
-    <tr><td class="res">98%<small>top-1, sub-second</small></td><td><h3>Surgical video retrieval</h3><div class="where">NCT Dresden · <a href="https://gitlab.com/nct_tso_students/kptp/query-by-image-video-retrieval">code</a></div><p>Finds the source video and timestamp of one surgical frame across 80 videos.</p><div class="tags">OpenCLIP · FAISS</div></td></tr>
-    <tr><td class="res">12→44%<small>phase F1</small></td><td><h3>Surgical video-language pretraining</h3><div class="where">NCT Dresden</div><p>Reproduced narration-supervised pretraining from scratch on 94,094 clip-caption pairs. A filtered 64,962 beat the full set, and a temporal model on the frozen features nearly quadrupled phase F1.</p><div class="tags">SurgCLIP · TimeSformer · MS-TCN</div>
-      <figure>
-        <svg viewBox="0 0 560 112" role="img" aria-label="Cholec80 phase F1: all clips zero-shot 8.6%, filtered clips zero-shot 12.1%, filtered plus MS-TCN 44.4%">
-          <text x="0" y="22">All 94,094 clips, zero-shot</text><rect x="210" y="10" width="49" height="16" fill="var(--grey)"/><text class="val" x="265" y="22">8.6%</text>
-          <text x="0" y="56">Filtered 64,962 clips, zero-shot</text><rect x="210" y="44" width="69" height="16" fill="var(--grey)"/><text class="val" x="285" y="56">12.1%</text>
-          <text x="0" y="90">Filtered + MS-TCN (temporal)</text><rect x="210" y="78" width="253" height="16" fill="var(--green)"/><text class="val" x="469" y="90">44.4%</text>
-          <line x1="210" y1="2" x2="210" y2="102" stroke="var(--rule)"/>
-        </svg>
-        <figcaption>Surgical phase recognition on Cholec80, macro F1. Trained for 15 epochs on less data than the original paper, so compare the bars, not the absolute scores.</figcaption>
-      </figure>
-    </td></tr>
-    <tr><td class="res">−55%<small>error vs naive</small></td><td><h3>Day-ahead power price forecaster</h3><div class="where">2026 rebuild of my NAECO Blue forecasting work</div><p>German day-ahead price forecasts from public grid data, with DST-safe features, a 56-day rolling backtest and an MLflow model registry with a promotion gate. LightGBM error 35.3 vs 78.7 EUR/MWh for the seasonal naive baseline.</p><div class="tags">LightGBM · NHITS · MLflow · Terraform</div>
-      <figure>
-        <img src="assets/img/pricecast/pricecast_forecast_vs_actual.png" alt="Hourly German day-ahead price, 10 to 23 November 2026: LightGBM forecast tracks the actual price closely, the seasonal naive baseline does not" loading="lazy" width="1632" height="600">
-        <figcaption>Two weeks of the rolling backtest: actual price (black), LightGBM forecast (blue), last week's price as the naive baseline (dashed).</figcaption>
-      </figure>
-    </td></tr>
-    <tr><td class="res">92.9%<small>mutants killed</small></td><td><h3>TestForge</h3><div class="where"><a href="https://github.com/hass44/testforge">github.com/hass44/testforge</a></div><p>An agent that writes and repairs pytest suites for untested Python code, across 16 real modules.</p><div class="tags">LangGraph · FastAPI · Docker</div></td></tr>
-    <tr><td class="res">3 people<small>hackathon</small></td><td><h3>FirstSignal</h3><div class="where"><a href="https://github.com/hass44/ai-hackathon">github.com/hass44/ai-hackathon</a></div><p>Diligence backend where every claim keeps its source, and it abstains when the evidence is thin.</p><div class="tags">FastAPI · pgvector · LangGraph</div></td></tr>
-  </table>
+        </svg></div><p class="cap"><span class="n">3/3</span><b>It depends on what you tell it.</b> Told where the fix goes and how long it is, diffusion repaired 55.2% against 34.5%. Without the lengths, AR comes out ahead. The answer is in the information, not the paradigm.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Retrieval -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=nct-dresden.de&amp;sz=64" alt="" loading="lazy">NCT Dresden</div><div class="res">98%<small>top-1, sub-second</small></div></div>
+    <div>
+      <h3>Surgical video retrieval</h3><div class="where">NCT Dresden · <a href="https://gitlab.com/nct_tso_students/kptp/query-by-image-video-retrieval">code</a></div>
+      <p>Show it a single frame from an operation and it tells you which video it came from and when.</p>
+      <div class="tags">OpenCLIP · FAISS</div>
+      <div class="show single">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="One frame goes through an encoder into an embedding, searched in a FAISS index of 80 videos, returning video and timestamp">
+          <rect x="10" y="86" width="66" height="54" rx="4" fill="#e9ddd6" stroke="#8f897d"/><circle cx="34" cy="108" r="9" fill="#c9a79a"/><rect x="44" y="118" width="24" height="6" fill="#9b8e86"/>
+          <text class="m" x="43" y="162" text-anchor="middle">one frame</text>
+          <path class="ln" d="M82,113 H106"/>
+          <rect class="gx" x="112" y="88" width="90" height="50" rx="6"/><text x="157" y="118" text-anchor="middle">encoder</text>
+          <path class="ln" d="M208,113 H232"/>
+          <g fill="#2f6b4f"><rect x="240" y="100" width="6" height="26"/><rect x="249" y="92" width="6" height="34"/><rect x="258" y="108" width="6" height="18"/><rect x="267" y="96" width="6" height="30"/><rect x="276" y="104" width="6" height="22"/><rect x="285" y="90" width="6" height="36"/></g>
+          <text class="m" x="266" y="148" text-anchor="middle">embedding</text>
+          <path class="ln" d="M298,113 H322"/>
+          <rect class="bx" x="328" y="80" width="84" height="66" rx="6"/><text x="370" y="108" text-anchor="middle">FAISS</text><text class="m" x="370" y="128" text-anchor="middle">80 videos</text>
+          <path class="ln" d="M418,113 H436"/>
+          <rect class="gx" x="442" y="80" width="70" height="66" rx="6"/><text x="477" y="108" text-anchor="middle">video</text><text x="477" y="128" text-anchor="middle">+ time</text>
+          <text class="m" x="260" y="210" text-anchor="middle">8,000 queries per perturbation to test robustness</text>
+        </svg></div><p class="cap"><b>How it works.</b> A foundation-model encoder turns the frame into an embedding, and a FAISS index finds its match across 80 surgery videos in under a second. I compared general and surgical encoders and three index types.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Pretraining -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=nct-dresden.de&amp;sz=64" alt="" loading="lazy">NCT Dresden</div><div class="res">12→44%<small>phase F1</small></div></div>
+    <div>
+      <h3>Surgical video-language pretraining</h3><div class="where">NCT Dresden</div>
+      <p>Surgeons talk while they operate in teaching videos. Can that speech replace hand labels?</p>
+      <div class="tags">SurgCLIP · TimeSformer · BERT · MS-TCN</div>
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Pretraining, step by step">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Narrated surgery videos to speech to text to 94,094 clip-caption pairs, filtered to 64,962, then contrastive training">
+          <rect class="bx" x="10" y="20" width="150" height="58" rx="6"/><text x="85" y="45" text-anchor="middle">~1,100 narrated</text><text x="85" y="66" text-anchor="middle">surgery videos</text>
+          <path class="ln" d="M166,49 H190"/>
+          <rect class="bx" x="196" y="20" width="118" height="58" rx="6"/><text x="255" y="54" text-anchor="middle">speech to text</text>
+          <path class="ln" d="M320,49 H344"/>
+          <rect class="bx" x="350" y="20" width="160" height="58" rx="6"/><text x="430" y="45" text-anchor="middle">94,094 clip-caption</text><text x="430" y="66" text-anchor="middle">pairs</text>
+          <path class="ln" d="M430,80 V118"/>
+          <rect class="gx" x="350" y="124" width="160" height="62" rx="6"/><text x="430" y="150" text-anchor="middle">filter captions</text><text class="m" x="430" y="172" text-anchor="middle">64,962 kept</text>
+          <path class="ln" d="M346,155 H310"/>
+          <rect class="bx" x="10" y="124" width="296" height="62" rx="6"/><text x="158" y="150" text-anchor="middle">contrastive training</text><text class="m" x="158" y="172" text-anchor="middle">video encoder ↔ text encoder</text>
+          <text class="m" x="260" y="220" text-anchor="middle">rebuilt from scratch: no official code existed yet</text>
+        </svg></div><p class="cap"><span class="n">1/3</span><b>Narration as supervision.</b> I rebuilt the SurgLaVi pipeline from scratch: transcribe the narration, cut it into clip-caption pairs, filter weak captions, then train video and text encoders to agree.</p></div>
+
+        <div class="slide"><div class="art"><img src="assets/img/nct/nct_loss_curves.png" alt="Training and validation loss over 14 epochs: both filtered variants reach lower loss than no filtering" loading="lazy" width="1920" height="760"></div><p class="cap"><span class="n">2/3</span><b>Cleaner data trains better.</b> Both filtered versions reach lower training and validation loss than the full, unfiltered set.</p></div>
+
+        <div class="slide"><div class="art"><svg class="c" viewBox="0 0 520 120" role="img" aria-label="Cholec80 phase F1: all clips zero-shot 8.6%, filtered clips zero-shot 12.1%, filtered plus MS-TCN 44.4%">
+          <text x="0" y="28">All 94,094 clips, zero-shot</text><rect x="205" y="16" width="47" height="16" fill="var(--grey)"/><text class="val" x="258" y="28">8.6%</text>
+          <text x="0" y="62">Filtered 64,962, zero-shot</text><rect x="205" y="50" width="66" height="16" fill="var(--grey)"/><text class="val" x="277" y="62">12.1%</text>
+          <text x="0" y="96">Filtered + MS-TCN (temporal)</text><rect x="205" y="84" width="243" height="16" fill="var(--green)"/><text class="val" x="454" y="96">44.4%</text>
+          <line x1="205" y1="8" x2="205" y2="108" stroke="var(--rule)"/>
+        </svg></div><p class="cap"><span class="n">3/3</span><b>Less data, better model, then add time.</b> 64,962 filtered clips beat all 94,094, and a temporal model on the frozen features nearly quadrupled phase F1 on Cholec80. I trained for less time than the original paper, so compare the bars rather than the absolute scores.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. PriceCast -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=naeco.blue&amp;sz=64" alt="" loading="lazy">NAECO Blue</div><div class="res">−55%<small>error vs naive</small></div></div>
+    <div>
+      <h3>Day-ahead power price forecaster</h3><div class="where">2026 rebuild of my NAECO Blue forecasting work</div>
+      <p>Tomorrow's German electricity price, hour by hour, from public grid data, built so a new model only replaces the old one if it is better.</p>
+      <div class="tags">LightGBM · NHITS · MLflow · Terraform</div>
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Power price forecaster, step by step">
+        <div class="slide"><div class="art"><img src="assets/img/pricecast/pricecast_forecast_vs_actual.png" alt="Hourly German day-ahead price, 10 to 23 November 2026: LightGBM forecast tracks the actual price, the naive baseline does not" loading="lazy" width="1632" height="600"></div><p class="cap"><span class="n">1/3</span><b>Forecast vs reality.</b> Two weeks of the rolling backtest: the actual price (black), my LightGBM forecast (blue) and "same hour last week" as the naive baseline (dashed).</p></div>
+        <div class="slide"><div class="art"><img src="assets/img/pricecast/pricecast_backtest_daily_mae.png" alt="Daily error over a 56-day backtest: LightGBM 35.3 versus seasonal naive 78.7 EUR per MWh" loading="lazy" width="1632" height="600"></div><p class="cap"><span class="n">2/3</span><b>Every day, scored.</b> Across 56 days the error was 35.3 EUR/MWh against 78.7 for the naive baseline, 55% lower. Wind-driven swings are where naive falls apart.</p></div>
+        <div class="slide"><div class="art"><img src="assets/img/pricecast/pricecast_mlflow_registry.png" alt="MLflow model registry for de-lu-day-ahead-price with two versions, version 1 tagged champion" loading="lazy" width="2000" height="760"></div><p class="cap"><span class="n">3/3</span><b>Promotion gate.</b> Each trained model is registered in MLflow, and a new version only becomes the champion if it beats the current one on the backtest.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. TestForge -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Open source</div><div class="res">92.9%<small>mutants killed</small></div></div>
+    <div>
+      <h3>TestForge</h3><div class="where"><a href="https://github.com/hass44/testforge">github.com/hass44/testforge</a></div>
+      <p>An agent that writes pytest suites for untested Python code, then fixes its own failing tests until they pass.</p>
+      <div class="tags">LangGraph · FastAPI · Docker · mutmut</div>
+      <div class="show single">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Source file, AST analysis, generate tests, run in Docker sandbox, check pass and coverage, repair or regenerate if not">
+          <rect class="bx" x="8" y="24" width="96" height="50" rx="6"/><text x="56" y="54" text-anchor="middle">source file</text>
+          <path class="ln" d="M108,49 H126"/>
+          <rect class="bx" x="132" y="24" width="96" height="50" rx="6"/><text x="180" y="54" text-anchor="middle">AST analysis</text>
+          <path class="ln" d="M232,49 H250"/>
+          <rect class="gx" x="256" y="24" width="96" height="50" rx="6"/><text x="304" y="47" text-anchor="middle">generate</text><text x="304" y="66" text-anchor="middle">tests</text>
+          <path class="ln" d="M356,49 H374"/>
+          <rect class="bx" x="380" y="24" width="132" height="50" rx="6"/><text x="446" y="45" text-anchor="middle">run in Docker</text><text class="m" x="446" y="64" text-anchor="middle">sandbox</text>
+          <path class="ln" d="M446,78 V128"/>
+          <rect class="bx" x="380" y="134" width="132" height="46" rx="6"/><text x="446" y="162" text-anchor="middle">pass + coverage?</text>
+          <path class="ln" d="M376,157 H306"/><text class="m" x="342" y="150" text-anchor="middle">no</text>
+          <rect class="gx" x="170" y="134" width="132" height="46" rx="6"/><text x="236" y="154" text-anchor="middle">repair or</text><text x="236" y="172" text-anchor="middle">regenerate</text>
+          <path class="ln" d="M236,130 V100 H420 V80"/>
+          <text class="m" x="446" y="210" text-anchor="middle">yes → done</text>
+          <text class="m" x="446" y="228" text-anchor="middle">then mutation testing</text>
+        </svg></div><p class="cap"><b>The loop.</b> It reads the code's structure, writes tests, runs them in a sandbox, and repairs them from the tracebacks or starts fresh when stuck. Mutation testing then plants bugs to check that the tests catch them: 92.9% caught across 16 real modules.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. FirstSignal -->
+  <div class="row">
+    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Hackathon</div><div class="res">3 people<small>hackathon team</small></div></div>
+    <div>
+      <h3>FirstSignal</h3><div class="where"><a href="https://github.com/hass44/ai-hackathon">github.com/hass44/ai-hackathon</a></div>
+      <p>A diligence tool for investors that would rather say "not enough evidence" than make something up.</p>
+      <div class="tags">FastAPI · PostgreSQL/pgvector · LangGraph</div>
+      <div class="show single">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="GitHub, web search, arXiv and documents feed an evidence store; claims are checked against sources; output is a cited answer or insufficient evidence">
+          <rect class="bx" x="8" y="22" width="112" height="34" rx="5"/><text x="64" y="44" text-anchor="middle">GitHub</text>
+          <rect class="bx" x="8" y="72" width="112" height="34" rx="5"/><text x="64" y="94" text-anchor="middle">web search</text>
+          <rect class="bx" x="8" y="122" width="112" height="34" rx="5"/><text x="64" y="144" text-anchor="middle">arXiv</text>
+          <rect class="bx" x="8" y="172" width="112" height="34" rx="5"/><text x="64" y="194" text-anchor="middle">documents</text>
+          <path class="ln" d="M124,39 L168,106"/><path class="ln" d="M124,89 L168,110"/><path class="ln" d="M124,139 L168,118"/><path class="ln" d="M124,189 L168,122"/>
+          <rect class="bx" x="174" y="84" width="112" height="60" rx="6"/><text x="230" y="110" text-anchor="middle">evidence</text><text class="m" x="230" y="130" text-anchor="middle">pgvector</text>
+          <path class="ln" d="M290,114 H310"/>
+          <rect class="gx" x="316" y="84" width="96" height="60" rx="6"/><text x="364" y="110" text-anchor="middle">check claims</text><text class="m" x="364" y="130" text-anchor="middle">vs sources</text>
+          <path class="ln" d="M416,104 L438,66"/><path class="ln" d="M416,124 L438,162"/>
+          <rect class="bx" x="440" y="36" width="74" height="50" rx="6"/><text x="477" y="58" text-anchor="middle">cited</text><text x="477" y="76" text-anchor="middle">answer</text>
+          <rect x="440" y="140" width="74" height="58" rx="6" fill="#fff6dc" stroke="#b8902d"/><text x="477" y="160" text-anchor="middle" class="m" style="fill:#7a5c12">not enough</text><text x="477" y="178" text-anchor="middle" class="m" style="fill:#7a5c12">evidence</text>
+        </svg></div><p class="cap"><b>Evidence first.</b> GitHub, the web, arXiv and uploaded documents become sourced evidence. Every claim keeps its source, contradictions stay visible, and when the evidence is thin it says so.</p></div>
+      </div>
+    </div>
+  </div>
 
   <h2>Experience &amp; education</h2>
   <div class="cv">
-    <time>08/2025 – now</time><div><b>KLA</b>, Working Student, AI<span>ML and LLM tools for chip manufacturing, deployed on-site</span></div>
-    <time>04/2025 – 03/2026</time><div><b>NCT Dresden</b>, Intern, Machine Learning<span>Surgical video retrieval and pretraining</span></div>
-    <time>06/2023 – 07/2024</time><div><b>NAECO Blue</b>, Working Student, Data Science<span>Day-ahead energy price forecasting and dashboards</span></div>
-    <time>11/2026</time><div><b>TU Dresden</b>, M.Sc. Computational Modelling and Simulation<span>Thesis supervised by Prof. Michael Färber</span></div>
-    <time>2024</time><div><b>PIEAS</b>, B.Sc. Computer Science<span>GDSC campus lead: 280 → 620 members</span></div>
+    <div class="when"><img src="https://www.google.com/s2/favicons?domain=kla.com&amp;sz=64" alt="" loading="lazy"><time>08/2025 – now</time></div><div class="what"><b>KLA</b>, Working Student, AI<span>ML and LLM tools for chip manufacturing, deployed on-site</span></div>
+    <div class="when"><img src="https://www.google.com/s2/favicons?domain=nct-dresden.de&amp;sz=64" alt="" loading="lazy"><time>04/2025 – 03/2026</time></div><div class="what"><b>NCT Dresden</b>, Intern, Machine Learning<span>Surgical video retrieval and pretraining</span></div>
+    <div class="when"><img src="https://www.google.com/s2/favicons?domain=naeco.blue&amp;sz=64" alt="" loading="lazy"><time>06/2023 – 07/2024</time></div><div class="what"><b>NAECO Blue</b>, Working Student, Data Science<span>Day-ahead energy price forecasting and dashboards</span></div>
+    <div class="when"><img src="https://www.google.com/s2/favicons?domain=tu-dresden.de&amp;sz=64" alt="" loading="lazy"><time>11/2026</time></div><div class="what"><b>TU Dresden</b>, M.Sc. Computational Modelling and Simulation<span>Thesis supervised by Prof. Michael Färber</span></div>
+    <div class="when"><img src="https://www.google.com/s2/favicons?domain=pieas.edu.pk&amp;sz=64" alt="" loading="lazy"><time>2024</time></div><div class="what"><b>PIEAS</b>, B.Sc. Computer Science<span>GDSC campus lead: 280 → 620 members</span></div>
   </div>
 
   <div class="margin">
     <h2>In the margins</h2>
-    <p>Most evenings it's jazz, a <i>Persona</i> save file I've sunk too many hours into, or another <i>One Piece</i> arc. Pokémon and Dragon Ball Z got me here first.</p>
+    <p>Most evenings it's jazz (Nujabes, always), a <i>Persona</i> save file I've sunk too many hours into, or another <i>One Piece</i> arc. Pokémon and Dragon Ball Z got me here first.</p>
   </div>
 
   <footer><span>© 2026 Muhammad Hassaan Ibrahim</span><span>Last updated November 2026</span></footer>
+</main>
+
+<aside>
+  <section class="panel" aria-label="Bug Battle mini-game">
+    <h4>BUG BATTLE <span id="lvl">Lv 1</span></h4>
+    <div class="stage">
+      <div class="fighter"><b id="foe">???</b><span id="foeHpTxt"></span></div>
+      <div class="hp" id="foeHpBar"><i style="width:100%"></i></div>
+      <div class="sprite" id="foeSprite" aria-hidden="true">🐛</div>
+      <div class="fighter"><b>Hassaan</b><span id="meHpTxt"></span></div>
+      <div class="hp" id="meHpBar"><i style="width:100%"></i></div>
+    </div>
+    <div class="log" id="log" aria-live="polite">A wild bug appears!</div>
+    <div class="moves" id="moves">
+      <button data-m="kfold">K-fold CV</button>
+      <button data-m="tests">Write tests</button>
+      <button data-m="cite">Cite sources</button>
+      <button data-m="profile">Profile memory</button>
+    </div>
+    <div class="meta"><span id="score">Bugs fixed: 0</span><span>best: <span id="best">0</span></span></div>
+  </section>
+
+  <section class="panel radio" aria-label="Late-night radio">
+    <h4>LATE-NIGHT RADIO <span>live</span></h4>
+    <div class="player" id="player"><button class="play" id="play">▶ Play jazz hip-hop</button></div>
+    <p>Nujabes-style vinyl jazz hip-hop, live on YouTube. Loads only when you press play. <a href="https://www.youtube.com/watch?v=5E0poMjkHLs" target="_blank" rel="noopener">Open on YouTube</a> · <a href="https://www.youtube.com/results?search_query=nujabes+live&amp;sp=EgJAAQ%253D%253D" target="_blank" rel="noopener">other streams</a></p>
+  </section>
+</aside>
 </div>
+
+<script>
+/* slideshows */
+document.querySelectorAll('.show').forEach(show => {
+  const slides = [...show.querySelectorAll('.slide')];
+  if (slides.length < 2) { show.classList.add('single'); return; }
+  const nav = document.createElement('div');
+  nav.className = 'nav';
+  nav.innerHTML = '<button class="arw" aria-label="Previous slide">‹</button><span class="dots"></span><button class="arw" aria-label="Next slide">›</button><span class="count"></span>';
+  show.appendChild(nav);
+  const [prev, next] = nav.querySelectorAll('.arw');
+  const dots = nav.querySelector('.dots');
+  slides.forEach((_, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Slide ' + (i + 1)); b.onclick = () => go(i); dots.appendChild(b); });
+  let i = 0;
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, j) => s.hidden = j !== i);
+    [...dots.children].forEach((d, j) => d.classList.toggle('on', j === i));
+    nav.querySelector('.count').textContent = (i + 1) + ' / ' + slides.length;
+  }
+  prev.onclick = () => go(i - 1);
+  next.onclick = () => go(i + 1);
+  show.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') go(i - 1); if (e.key === 'ArrowRight') go(i + 1); });
+  let x0 = null;
+  show.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, {passive: true});
+  show.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  go(0);
+});
+
+/* radio: load the stream only on click */
+document.getElementById('play').onclick = () => {
+  document.getElementById('player').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/5E0poMjkHLs?autoplay=1" title="Jazz hip-hop live stream" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+};
+
+/* Bug Battle */
+(() => {
+  const FOES = [
+    {name: 'Data Leakage', sprite: '🕳️', weak: 'kfold', hit: 'sneaks test data into training. Accuracy looks amazing.'},
+    {name: 'Overfitting', sprite: '🎯', weak: 'kfold', hit: 'memorises the training set. Validation cries.'},
+    {name: 'Flaky Test', sprite: '🎲', weak: 'tests', hit: 'passes on Tuesdays only.'},
+    {name: 'Silent Regression', sprite: '🥷', weak: 'tests', hit: 'breaks something three files away.'},
+    {name: 'Hallucination', sprite: '👻', weak: 'cite', hit: 'cites a paper that does not exist.'},
+    {name: 'Confident Wrong Answer', sprite: '🤡', weak: 'cite', hit: 'says it with 100% confidence.'},
+    {name: 'Out Of Memory', sprite: '🐘', weak: 'profile', hit: 'eats all the RAM. The kernel dies.'},
+    {name: 'Context Overflow', sprite: '🌊', weak: 'profile', hit: 'floods the context window with tool output.'},
+  ];
+  const MOVES = {kfold: 'K-fold CV', tests: 'Write tests', cite: 'Cite sources', profile: 'Profile memory'};
+  const $ = id => document.getElementById(id);
+  const store = {get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }};
+  let me, maxMe, foe, foeHp, foeMax, fixed = 0, lvl = 1, busy = false;
+  let best = +store.get('bugbattle-best') || 0;
+  $('best').textContent = best;
+  const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+  function bar(el, v, max) { const p = Math.max(0, v / max * 100); el.querySelector('i').style.width = p + '%'; el.classList.toggle('low', p <= 50 && p > 20); el.classList.toggle('crit', p <= 20); }
+  function draw() { bar($('foeHpBar'), foeHp, foeMax); bar($('meHpBar'), me, maxMe); $('foeHpTxt').textContent = Math.max(0, foeHp) + '/' + foeMax; $('meHpTxt').textContent = Math.max(0, me) + '/' + maxMe; $('lvl').textContent = 'Lv ' + lvl; $('score').textContent = 'Bugs fixed: ' + fixed; }
+  function say(t) { $('log').textContent = t; }
+  function lock(on) { busy = on; document.querySelectorAll('#moves button').forEach(b => b.disabled = on); }
+  function spawn() { const f = FOES[rnd(0, FOES.length - 1)]; foe = f; foeMax = 18 + lvl * 4; foeHp = foeMax; $('foe').textContent = f.name; $('foeSprite').textContent = f.sprite; say('A wild ' + f.name + ' appears! Pick a fix.'); draw(); }
+  function start() { lvl = 1; fixed = 0; maxMe = 30; me = maxMe; spawn(); lock(false); }
+  function attack(m) {
+    if (busy) return;
+    lock(true);
+    const sup = m === foe.weak;
+    const dmg = sup ? rnd(12, 16) + lvl : rnd(2, 5);
+    foeHp -= dmg;
+    $('foeSprite').classList.add('hit'); setTimeout(() => $('foeSprite').classList.remove('hit'), 180);
+    say('You use ' + MOVES[m] + '! ' + (sup ? "It's super effective! " : "It barely helps. ") + '−' + dmg);
+    draw();
+    setTimeout(() => {
+      if (foeHp <= 0) {
+        fixed++; if (fixed > best) { best = fixed; store.set('bugbattle-best', best); $('best').textContent = best; }
+        if (fixed % 2 === 0) { lvl++; maxMe += 4; }
+        me = Math.min(maxMe, me + 8);
+        say(foe.name + ' is fixed! +8 HP' + (fixed % 2 === 0 ? '. Level up!' : '.'));
+        draw();
+        setTimeout(() => { spawn(); lock(false); }, 1100);
+        return;
+      }
+      const hit = rnd(3, 6) + Math.floor(lvl / 2);
+      me -= hit;
+      say(foe.name + ' ' + foe.hit + ' −' + hit + ' HP');
+      draw();
+      if (me <= 0) {
+        say('You ran out of coffee after fixing ' + fixed + ' bug' + (fixed === 1 ? '' : 's') + '. Press any move to try again.');
+        busy = false; document.querySelectorAll('#moves button').forEach(b => b.disabled = false);
+        me = 0; draw(); attack.over = true; return;
+      }
+      lock(false);
+    }, 900);
+  }
+  document.querySelectorAll('#moves button').forEach(b => b.onclick = () => { if (attack.over) { attack.over = false; start(); return; } attack(b.dataset.m); });
+  start();
+})();
+</script>
 </body>
 </html>
