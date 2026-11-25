@@ -3,59 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hassaan Ibrahim — Machine learning engineer</title>
-<meta name="description" content="Muhammad Hassaan Ibrahim. Machine learning engineer: LLM systems at KLA, surgical video research at NCT Dresden, M.Sc. at TU Dresden.">
+<title>Hassaan Ibrahim</title>
+<meta name="description" content="Muhammad Hassaan Ibrahim, machine learning engineer in Dresden. Vision models in production with Micron Technology, LLM agents for chip manufacturing at KLA, M.Sc. at TU Dresden.">
+<meta property="og:title" content="Hassaan Ibrahim, machine learning engineer">
+<meta property="og:description" content="Vision models in production in chip fabs, LLM agents for manufacturing, M.Sc. at TU Dresden.">
+<meta property="og:image" content="https://hass44.github.io/assets/photo.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232f6b4f'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23fbfaf7' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/p3.css">
-<script src="assets/data.js" defer></script>
-<script src="assets/p3.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf7;--ink:#1b1b1b;--dim:#6d6a63;--rule:#e4e0d6;--green:#2f6b4f;--grey:#b9b4a8;--mark:#fff1b8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:var(--green);text-underline-offset:3px}
+.page{max-width:880px;margin:0 auto;padding:64px 24px 88px}
+header{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding-bottom:28px;border-bottom:1px solid var(--ink)}
+.photo{width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;border:1px solid var(--rule)}
+h1{font:400 44px/1.05 Newsreader,serif;margin:0}
+.sub{margin:8px 0 0;color:var(--dim)}
+.contact{text-align:right;font-size:14px;line-height:1.9}
+.contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.contact a:hover{border-color:var(--green)}
+.about{font:400 22px/1.5 Newsreader,serif;margin:36px 0 0;max-width:40em}
+.about mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit}
+.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin:18px 0 0;font:13px "IBM Plex Mono",monospace;color:var(--dim)}
+h2{font:500 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin:72px 0 6px}
+table{width:100%;border-collapse:collapse}
+td{vertical-align:top;padding:18px 0;border-bottom:1px solid var(--rule)}
+td.res{width:150px;padding-right:24px;font:400 28px/1.1 Newsreader,serif;color:var(--green)}
+td.res small{display:block;font:12px Inter,sans-serif;color:var(--dim);margin-top:6px}
+td h3{font-size:16px;font-weight:500;margin:0}
+td .where{font-size:13px;color:var(--dim)}
+td p{margin:6px 0 0;font-size:15px;max-width:60ch}
+td .tags{font:12px "IBM Plex Mono",monospace;color:var(--dim);margin-top:8px}
+figure{margin:16px 0 4px;padding:16px;background:#fff;border:1px solid var(--rule)}
+figure img,figure svg{display:block;width:100%;height:auto}
+figcaption{font-size:12.5px;color:var(--dim);margin-top:10px;line-height:1.5}
+svg text{font-family:Inter,sans-serif;font-size:12px;fill:var(--dim)}
+svg .val{fill:var(--ink);font-weight:500}
+svg .grp{fill:var(--ink);font-size:12.5px}
+.cv{display:grid;grid-template-columns:150px 1fr;gap:0 24px}
+.cv time{font:13px "IBM Plex Mono",monospace;color:var(--dim);padding:14px 0;border-bottom:1px solid var(--rule)}
+.cv div{padding:14px 0;border-bottom:1px solid var(--rule)}
+.cv span{display:block;font-size:14px;color:var(--dim)}
+.margin{margin-top:72px;display:grid;grid-template-columns:150px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--ink)}
+.margin h2{margin:4px 0 0}
+.margin p{margin:0;font:400 19px/1.55 Newsreader,serif}
+.margin i{color:var(--green)}
+footer{margin-top:56px;font-size:13px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:640px){
+  .page{padding:40px 16px 64px}
+  header{grid-template-columns:auto 1fr;gap:16px}
+  .photo{width:68px;height:68px}
+  .contact{grid-column:1/-1;text-align:left;display:flex;flex-wrap:wrap;gap:4px 16px}
+  .contact br{display:none}
+  h1{font-size:34px}
+  table,tbody,tr,td{display:block}
+  td.res{width:auto;border:0;padding:18px 0 0}
+  td.res:empty{display:none}
+  figure{padding:10px;overflow-x:auto}
+  figure svg{min-width:480px}
+  .cv,.margin{grid-template-columns:1fr;gap:0}
+  .cv time{border:0;padding-bottom:0}
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#detail">Skip to content</a>
-<div class="screen">
-  <header class="top">
-    <a class="name" href="#work/surgical">Hassaan Ibrahim</a>
-    <nav class="contact" aria-label="Contact">
-      <a class="cv" href="Muhammad_Hassaan_Ibrahim_CV.pdf">CV (PDF) ↓</a>
-      <a href="mailto:muhammadhassaanibrahim@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/hassaanibrahim">LinkedIn</a>
+<div class="page">
+  <header>
+    <img class="photo" src="assets/photo.png" alt="Hassaan Ibrahim" width="88" height="88">
+    <div>
+      <h1>Hassaan Ibrahim</h1>
+      <p class="sub">Machine learning engineer · Dresden</p>
+    </div>
+    <nav class="contact">
+      <a href="Muhammad_Hassaan_Ibrahim_CV.pdf"><b>CV (PDF)</b></a><br>
+      <a href="mailto:muhammadhassaanibrahim@gmail.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/hassaanibrahim">LinkedIn</a> ·
       <a href="https://github.com/hass44">GitHub</a>
     </nav>
   </header>
 
-  <section class="intro" aria-label="Summary">
-    <p class="role">Machine learning engineer</p>
-    <p class="lede">LLM systems and computer vision at KLA. Surgical video research at NCT Dresden. M.Sc. at TU Dresden, graduating November 2026.</p>
-    <p class="avail">Available from December 2026 · Dresden, willing to relocate</p>
-  </section>
+  <p class="about">Two years of ML in industry: <mark>a vision model in production with Micron Technology</mark>, ML running on-site in customer fabs, and LLM agents for chip manufacturing. M.Sc. at TU Dresden, November 2026.</p>
+  <div class="facts"><span>Available Dec 2026</span><span>Willing to relocate</span><span>English C2 · Urdu · German A2</span></div>
 
-  <div class="layout">
-    <aside class="menu">
-      <nav class="sections" aria-label="Sections">
-        <a href="#work" data-section="work">Work</a>
-        <a href="#research" data-section="research">Research</a>
-        <a href="#about" data-section="about">About</a>
-        <a href="#interests" data-section="interests">Interests</a>
-      </nav>
-      <nav class="entries" id="entries" aria-label="Entries"></nav>
-    </aside>
-    <main class="detail-wrap">
-      <article id="detail" tabindex="-1" aria-live="polite"></article>
-      <div class="pager">
-        <button id="previous" aria-label="Previous entry">← Previous</button>
-        <span id="pageCount"></span>
-        <button id="next" aria-label="Next entry">Next →</button>
-      </div>
-    </main>
+  <h2>Results</h2>
+  <table>
+    <tr><td class="res">5 releases<small>in production</small></td><td><h3>Wafer defect detection</h3><div class="where">KLA, with Micron Technology</div><p>Label-free autoencoder that flags defective CD-SEM images and groups them by likely root cause, running on customers' CPU-only fab hardware.</p><div class="tags">PyTorch · Optuna · K-fold CV</div></td></tr>
+    <tr><td class="res">On-site<small>air-gapped</small></td><td><h3>LLM agents for lithography (aiLITHO)</h3><div class="where">KLA</div><p>Tools, document ingestion and evaluation for an agent platform engineers use to query manufacturing data. Self-hosted LLM on vLLM, MLflow tracing, LLM-as-judge.</p><div class="tags">LangGraph · vLLM · MLflow</div></td></tr>
+    <tr><td class="res">55.2%<small>vs 34.5%, 310 bugs</small></td><td><h3>Diffusion vs autoregressive code repair</h3><div class="where">M.Sc. thesis, ScaDS.AI</div><p>A 7B code model adapted twice at matched compute on H100s. Diffusion only wins when it is given edit locations and fix lengths; without the lengths, AR leads.</p><div class="tags">Qwen2.5-Coder · FSDP · Slurm</div>
+      <figure>
+        <svg viewBox="0 0 560 172" role="img" aria-label="Bugs repaired: with lengths given, AR 34.5% and diffusion 55.2%; without lengths, AR 34.8% and diffusion 23.9%">
+          <text class="grp" x="0" y="14">Edit locations and fix lengths given</text>
+          <text x="0" y="40">Autoregressive</text><rect x="110" y="28" width="190" height="16" fill="var(--grey)"/><text class="val" x="306" y="40">34.5%</text>
+          <text x="0" y="62">Diffusion</text><rect x="110" y="50" width="304" height="16" fill="var(--green)"/><text class="val" x="420" y="62">55.2%</text>
+          <text class="grp" x="0" y="100">Lengths not given (six candidates, public tests)</text>
+          <text x="0" y="126">Autoregressive</text><rect x="110" y="114" width="191" height="16" fill="var(--grey)"/><text class="val" x="307" y="126">34.8%</text>
+          <text x="0" y="148">Diffusion</text><rect x="110" y="136" width="131" height="16" fill="var(--green)"/><text class="val" x="247" y="148">23.9%</text>
+          <line x1="110" y1="22" x2="110" y2="158" stroke="var(--rule)"/>
+        </svg>
+        <figcaption>Bugs repaired out of 310 real multi-location bugs (ConDefects), Qwen2.5-Coder-7B adapted as an AR and a diffusion model on the same data and compute.</figcaption>
+      </figure>
+    </td></tr>
+    <tr><td class="res">98%<small>top-1, sub-second</small></td><td><h3>Surgical video retrieval</h3><div class="where">NCT Dresden · <a href="https://gitlab.com/nct_tso_students/kptp/query-by-image-video-retrieval">code</a></div><p>Finds the source video and timestamp of one surgical frame across 80 videos.</p><div class="tags">OpenCLIP · FAISS</div></td></tr>
+    <tr><td class="res">12→44%<small>phase F1</small></td><td><h3>Surgical video-language pretraining</h3><div class="where">NCT Dresden</div><p>Reproduced narration-supervised pretraining from scratch on 94,094 clip-caption pairs. A filtered 64,962 beat the full set, and a temporal model on the frozen features nearly quadrupled phase F1.</p><div class="tags">SurgCLIP · TimeSformer · MS-TCN</div>
+      <figure>
+        <svg viewBox="0 0 560 112" role="img" aria-label="Cholec80 phase F1: all clips zero-shot 8.6%, filtered clips zero-shot 12.1%, filtered plus MS-TCN 44.4%">
+          <text x="0" y="22">All 94,094 clips, zero-shot</text><rect x="210" y="10" width="49" height="16" fill="var(--grey)"/><text class="val" x="265" y="22">8.6%</text>
+          <text x="0" y="56">Filtered 64,962 clips, zero-shot</text><rect x="210" y="44" width="69" height="16" fill="var(--grey)"/><text class="val" x="285" y="56">12.1%</text>
+          <text x="0" y="90">Filtered + MS-TCN (temporal)</text><rect x="210" y="78" width="253" height="16" fill="var(--green)"/><text class="val" x="469" y="90">44.4%</text>
+          <line x1="210" y1="2" x2="210" y2="102" stroke="var(--rule)"/>
+        </svg>
+        <figcaption>Surgical phase recognition on Cholec80, macro F1. Trained for 15 epochs on less data than the original paper, so compare the bars, not the absolute scores.</figcaption>
+      </figure>
+    </td></tr>
+    <tr><td class="res">−55%<small>error vs naive</small></td><td><h3>Day-ahead power price forecaster</h3><div class="where">2026 rebuild of my NAECO Blue forecasting work</div><p>German day-ahead price forecasts from public grid data, with DST-safe features, a 56-day rolling backtest and an MLflow model registry with a promotion gate. LightGBM error 35.3 vs 78.7 EUR/MWh for the seasonal naive baseline.</p><div class="tags">LightGBM · NHITS · MLflow · Terraform</div>
+      <figure>
+        <img src="assets/img/pricecast/pricecast_forecast_vs_actual.png" alt="Hourly German day-ahead price, 10 to 23 November 2026: LightGBM forecast tracks the actual price closely, the seasonal naive baseline does not" loading="lazy" width="1632" height="600">
+        <figcaption>Two weeks of the rolling backtest: actual price (black), LightGBM forecast (blue), last week's price as the naive baseline (dashed).</figcaption>
+      </figure>
+    </td></tr>
+    <tr><td class="res">92.9%<small>mutants killed</small></td><td><h3>TestForge</h3><div class="where"><a href="https://github.com/hass44/testforge">github.com/hass44/testforge</a></div><p>An agent that writes and repairs pytest suites for untested Python code, across 16 real modules.</p><div class="tags">LangGraph · FastAPI · Docker</div></td></tr>
+    <tr><td class="res">3 people<small>hackathon</small></td><td><h3>FirstSignal</h3><div class="where"><a href="https://github.com/hass44/ai-hackathon">github.com/hass44/ai-hackathon</a></div><p>Diligence backend where every claim keeps its source, and it abstains when the evidence is thin.</p><div class="tags">FastAPI · pgvector · LangGraph</div></td></tr>
+  </table>
+
+  <h2>Experience &amp; education</h2>
+  <div class="cv">
+    <time>08/2025 – now</time><div><b>KLA</b>, Working Student, AI<span>ML and LLM tools for chip manufacturing, deployed on-site</span></div>
+    <time>04/2025 – 03/2026</time><div><b>NCT Dresden</b>, Intern, Machine Learning<span>Surgical video retrieval and pretraining</span></div>
+    <time>06/2023 – 07/2024</time><div><b>NAECO Blue</b>, Working Student, Data Science<span>Day-ahead energy price forecasting and dashboards</span></div>
+    <time>11/2026</time><div><b>TU Dresden</b>, M.Sc. Computational Modelling and Simulation<span>Thesis supervised by Prof. Michael Färber</span></div>
+    <time>2024</time><div><b>PIEAS</b>, B.Sc. Computer Science<span>GDSC campus lead: 280 → 620 members</span></div>
   </div>
 
-  <footer class="foot">
-    <span>© 2026 Muhammad Hassaan Ibrahim</span>
-    <span>Design based on the Persona 3 Reload pause menu</span>
-  </footer>
+  <div class="margin">
+    <h2>In the margins</h2>
+    <p>Most evenings it's jazz, a <i>Persona</i> save file I've sunk too many hours into, or another <i>One Piece</i> arc. Pokémon and Dragon Ball Z got me here first.</p>
+  </div>
+
+  <footer><span>© 2026 Muhammad Hassaan Ibrahim</span><span>Last updated November 2026</span></footer>
 </div>
-<noscript><div class="fallback">Hassaan Ibrahim, machine learning engineer at KLA and M.Sc. student at TU Dresden. <a href="Muhammad_Hassaan_Ibrahim_CV.pdf">Read the CV (PDF)</a>.</div></noscript>
 </body>
 </html>
