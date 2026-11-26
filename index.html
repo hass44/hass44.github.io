@@ -109,6 +109,57 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
 .radio .play{font-family:"Pixelify Sans",monospace;background:#ffd56a;color:#1f2330;border:0;border-radius:6px;padding:10px 16px;font-size:15px}
 .radio p{font-size:12.5px;color:#9aa3b8;margin:10px 0 0;line-height:1.4}
 .radio p a{color:#ffd56a}
+/* NCT feature */
+.feature{margin-top:14px}
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;border-radius:6px;overflow:hidden;background:#111}
+.strip a{display:block;aspect-ratio:1/1;overflow:hidden;background:#111}
+.strip img{width:100%;height:100%;object-fit:cover;transform:scale(1.34);transition:transform .3s,filter .3s;display:block}
+.strip a:hover img{transform:scale(1.42);filter:saturate(1.15)}
+.warn{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;background:#fff6dc;border:1px solid #e3c878;border-radius:6px;padding:10px 14px;margin-bottom:10px;font-size:14px;line-height:1.5;color:#5c4510}
+.warn b{color:#3d2e08}
+.warn button{border:1px solid #b8902d;background:#fff;color:#5c4510;border-radius:999px;padding:5px 14px;font-size:13px;white-space:nowrap}
+.warn button:hover{background:#b8902d;color:#fff}
+.feature img,.feature svg image{transition:filter .3s}
+.feature.veiled .strip img,.feature.veiled .gc .media img,.feature.veiled svg image{filter:blur(16px) saturate(.5)}
+.feature.veiled .strip a{pointer-events:none}
+.stripcap{font-size:13px;color:var(--dim);margin:8px 0 0}
+.sub{padding:26px 0 24px;border-bottom:1px solid var(--rule)}
+.subhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.subhead h3{font:400 26px/1.15 Newsreader,serif;margin:0}
+.chip{font:13px "IBM Plex Mono",monospace;color:var(--green);background:var(--tint);border-radius:999px;padding:2px 10px}
+.chip b{font-weight:500}
+.sub>p{margin:8px 0 0;font-size:15px;max-width:66ch}
+.game{margin:18px 0 6px;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:16px}
+.gamehead{font-size:14px;line-height:1.55;color:#3b3934;margin-bottom:12px}
+.gamehead b{color:var(--ink)}
+.score{display:inline-block;font:12px "IBM Plex Mono",monospace;color:var(--green);margin-left:4px}
+.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gc{border:1px solid var(--rule);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;background:var(--bg)}
+.gc .media{aspect-ratio:16/9;overflow:hidden;background:#111}
+.gc .media img{width:100%;display:block;margin-top:-9.375%}
+.gc q,.gc .fo{display:block;padding:10px 12px;font:italic 400 16px/1.4 Newsreader,serif;flex:1}
+.gc q.only{display:block;min-height:120px;padding-top:34px !important;background:var(--tint);font-size:18px;padding:16px}
+.gc .fo{font:12px "IBM Plex Mono",monospace;color:var(--dim);font-style:normal}
+.gc .act{display:flex;gap:6px;padding:8px 10px;border-top:1px solid var(--rule);margin-top:auto}
+.gc .act button{flex:1;border:1px solid var(--rule);background:#fff;border-radius:4px;padding:5px;font-size:13px;color:var(--ink)}
+.gc .act button:hover{border-color:var(--green);color:var(--green)}
+.gc .verdict{padding:8px 10px;font-size:13px;line-height:1.45;border-top:1px solid var(--rule);margin-top:auto}
+.gc .verdict b{display:block;font:12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
+.gc.right .verdict b{color:var(--green)}
+.gc.wrong .verdict b{color:#a8681a}
+.gc.done.a-drop .media img,.gc.done.a-drop q.only{opacity:.45}
+.gamefoot{font-size:12px;color:var(--dim);margin:10px 0 0}
+.sub .show{margin-top:16px}
+/* side projects */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:18px 18px 8px;min-width:0}
+.card.wide{grid-column:1/-1}
+.card .chead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.card .chead .logo{margin:4px 0 0}
+.card .res{font-size:26px;text-align:right}
+.card h3{font:400 22px/1.2 Newsreader,serif;margin:0}
+.card p{margin:6px 0 0;font-size:15px}
+.card .show{border:0;border-top:1px solid var(--rule);border-radius:0;margin:14px -18px 0}
 @media (max-width:1040px){
   .wrap{grid-template-columns:1fr;gap:0}
   aside{position:static;margin-top:56px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
@@ -129,6 +180,12 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
   .art svg{min-width:470px}
   .art img{height:auto}
   .cv,.margin{grid-template-columns:1fr;gap:0}
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cards3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .card{padding:14px 14px 6px}
+  .card .show{margin:12px -14px 0}
+  .subhead h3{font-size:23px}
   .cv .when{border:0;padding-bottom:0}
 }
 </style>
@@ -158,7 +215,7 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
   <p class="hello">I teach models to <mark>spot broken chips</mark>, find one frame among 80 surgery videos, and settle arguments about <i>how</i> AI should fix code.</p>
   <div class="facts"><span class="open">Open to full-time roles from Dec 2026</span><span>Willing to relocate</span><span>English C2 · Urdu · German A2</span></div>
 
-  <h2>Results</h2>
+  <h2>At KLA</h2>
 
   <!-- 1. Wafer defects -->
   <div class="row">
@@ -265,6 +322,103 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
     </div>
   </div>
 
+  <h2>Surgical video · NCT Dresden</h2>
+  <section class="feature veiled" id="nct" aria-label="Surgical video work at NCT Dresden">
+    <div class="warn"><span><b>Graphic content.</b> This section shows real footage from inside the body during surgery, including some blood. Images are blurred until you choose to see them.</span><button id="unveil" type="button">Show images</button></div>
+    <div class="strip">
+      <a href="https://www.youtube.com/watch?v=7RqTNr2Bmvk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/7RqTNr2Bmvk/hq2.jpg" alt="Laparoscopic view of a gallbladder dissection" loading="lazy"></a>
+      <a href="https://www.youtube.com/watch?v=8MCYDrmvqzw" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/8MCYDrmvqzw/hq3.jpg" alt="Robotic instruments during a cholecystectomy" loading="lazy"></a>
+      <a href="https://www.youtube.com/watch?v=VW-XRjyvilQ" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/VW-XRjyvilQ/hq3.jpg" alt="Teaching video frame with the cystic duct and common bile duct highlighted" loading="lazy"></a>
+      <a href="https://www.youtube.com/watch?v=_pWsV5A-FEU" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/_pWsV5A-FEU/hq1.jpg" alt="Laparoscopic graspers lifting the gallbladder below the liver" loading="lazy"></a>
+      <a href="https://www.youtube.com/watch?v=qM1A1nl_0L4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/qM1A1nl_0L4/hq2.jpg" alt="Endoscopic view of dissection with two instruments" loading="lazy"></a>
+      <a href="https://www.youtube.com/watch?v=uNbIDOzeA0k" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/uNbIDOzeA0k/hq2.jpg" alt="Laparoscopic view of a large fibroid held by graspers" loading="lazy"></a>
+    </div>
+    <p class="stripcap">Frames from public narrated surgery videos, the kind of teaching video the pretraining data is built from. Each one links to its video on YouTube.</p>
+
+    <div class="sub">
+      <div class="subhead"><h3>Learning surgery from the surgeon's own words</h3><span class="chip">phase F1 <b>12% → 44.4%</b></span></div>
+      <p>Surgeons narrate their teaching videos as they operate. I rebuilt the SurgLaVi pipeline from scratch to turn that speech into 94,094 clip-caption pairs from about 1,100 videos, then trained a video encoder and a text encoder to agree. The interesting part was the data: most of what surgeons say is not about what the camera shows.</p>
+      <div class="tags">WhisperX · TimeSformer · BERT · contrastive learning · MS-TCN</div>
+
+      <div class="game" id="game">
+        <div class="gamehead"><b>Would you train on it?</b> Two filters decide: is the frame a surgical scene, and does the line describe what is visible? Try them on real frames and narration from these videos. <span class="score" id="gameScore"></span></div>
+        <div class="cards3">
+          <div class="gc" data-a="drop" data-why="A title card. The visual filter drops frames with no surgical scene.">
+            <div class="media"><img src="https://i.ytimg.com/vi/tHzlfxBsaLU/hq1.jpg" alt="Yellow title card naming the operation" loading="lazy"></div>
+            <span class="fo">Frame only, no narration</span>
+          </div>
+          <div class="gc" data-a="keep" data-why="Surgical scene, and the line says what the instruments are doing. Kept.">
+            <div class="media"><img src="https://i.ytimg.com/vi/qM1A1nl_0L4/hq3.jpg" alt="Endoscopic view during gallbladder dissection" loading="lazy"></div>
+            <q>So I am pushing towards the gallbladder, not towards the duct.</q>
+          </div>
+          <div class="gc" data-a="drop" data-why="On topic, but it describes the case, not what is on screen. The caption filter drops it.">
+            <q class="only">This is a video of an elective cholecystectomy for gallstones.</q>
+          </div>
+          <div class="gc" data-a="drop" data-why="The camera is outside the body. No surgical scene, so the visual filter drops it.">
+            <div class="media"><img src="https://i.ytimg.com/vi/_oMNRINPY5I/hq1.jpg" alt="Off-camera shot of a patterned cloth" loading="lazy"></div>
+            <span class="fo">Frame only, no narration</span>
+          </div>
+          <div class="gc" data-a="drop" data-why="Says nothing about what the video shows. Dropped.">
+            <q class="only">Unfortunately, I had the XI Robot that day.</q>
+          </div>
+          <div class="gc" data-a="keep" data-why="Describes the view the model sees. Kept.">
+            <div class="media"><img src="https://i.ytimg.com/vi/_pWsV5A-FEU/hq2.jpg" alt="Laparoscopic view of the liver and gallbladder" loading="lazy"></div>
+            <q>Now we see the surface of the liver.</q>
+          </div>
+        </div>
+        <p class="gamefoot">Lines are speech-to-text transcripts from the linked videos; the frame and the line come from the same video, not always the same second.</p>
+      </div>
+
+      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Pretraining, step by step">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Narrated surgery videos to speech to text to 94,094 clip-caption pairs, filtered to 64,962, then contrastive training">
+          <rect class="bx" x="10" y="20" width="150" height="58" rx="6"/><text x="85" y="45" text-anchor="middle">~1,100 narrated</text><text x="85" y="66" text-anchor="middle">surgery videos</text>
+          <path class="ln" d="M166,49 H190"/>
+          <rect class="bx" x="196" y="20" width="118" height="58" rx="6"/><text x="255" y="54" text-anchor="middle">speech to text</text>
+          <path class="ln" d="M320,49 H344"/>
+          <rect class="bx" x="350" y="20" width="160" height="58" rx="6"/><text x="430" y="45" text-anchor="middle">94,094 clip-caption</text><text x="430" y="66" text-anchor="middle">pairs</text>
+          <path class="ln" d="M430,80 V118"/>
+          <rect class="gx" x="350" y="124" width="160" height="62" rx="6"/><text x="430" y="150" text-anchor="middle">filter captions</text><text class="m" x="430" y="172" text-anchor="middle">64,962 kept</text>
+          <path class="ln" d="M346,155 H310"/>
+          <rect class="bx" x="10" y="124" width="296" height="62" rx="6"/><text x="158" y="150" text-anchor="middle">contrastive training</text><text class="m" x="158" y="172" text-anchor="middle">video encoder ↔ text encoder</text>
+          <text class="m" x="260" y="220" text-anchor="middle">rebuilt from scratch: no official code existed yet</text>
+        </svg></div><p class="cap"><span class="n">1/3</span><b>The pipeline.</b> Transcribe the narration, cut it into clip-caption pairs, filter out the pairs that fail either test above, then train video and text encoders to agree.</p></div>
+
+        <div class="slide"><div class="art"><img src="assets/img/nct/nct_loss_curves.png" alt="Training and validation loss over 14 epochs: both filtered variants reach lower loss than no filtering" loading="lazy" width="1920" height="760"></div><p class="cap"><span class="n">2/3</span><b>Cleaner data trains better.</b> Both filtered versions reach lower training and validation loss than the full, unfiltered set.</p></div>
+
+        <div class="slide"><div class="art"><svg class="c" viewBox="0 0 520 120" role="img" aria-label="Cholec80 phase F1: all clips zero-shot 8.6%, filtered clips zero-shot 12.1%, filtered plus MS-TCN 44.4%">
+          <text x="0" y="28">All 94,094 clips, zero-shot</text><rect x="205" y="16" width="47" height="16" fill="var(--grey)"/><text class="val" x="258" y="28">8.6%</text>
+          <text x="0" y="62">Filtered 64,962, zero-shot</text><rect x="205" y="50" width="66" height="16" fill="var(--grey)"/><text class="val" x="277" y="62">12.1%</text>
+          <text x="0" y="96">Filtered + MS-TCN (temporal)</text><rect x="205" y="84" width="243" height="16" fill="var(--green)"/><text class="val" x="454" y="96">44.4%</text>
+          <line x1="205" y1="8" x2="205" y2="108" stroke="var(--rule)"/>
+        </svg></div><p class="cap"><span class="n">3/3</span><b>Less data, better model, then add time.</b> 64,962 filtered clips beat all 94,094 on Cholec80 surgical phases, and a temporal model on the frozen features nearly quadrupled phase F1. I trained for less time than the original paper, so compare the bars rather than the absolute scores.</p></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="subhead"><h3>Find the frame</h3><span class="chip">top-1 <b>98%</b>, under a second</span></div>
+      <p>Show it one frame from an operation and it tells you which of 80 surgery videos it came from, and when. I compared general and surgical foundation-model encoders and three FAISS index types, with 8,000 queries per image perturbation to test robustness. <a href="https://gitlab.com/nct_tso_students/kptp/query-by-image-video-retrieval">Code</a></p>
+      <div class="tags">OpenCLIP · FAISS · Cholec80</div>
+      <div class="show single">
+        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="An example frame goes through an encoder into an embedding, searched in a FAISS index of 80 videos, returning video and timestamp">
+          <defs><clipPath id="qf"><rect x="6" y="88" width="88" height="50" rx="4"/></clipPath></defs>
+          <image href="https://i.ytimg.com/vi/qM1A1nl_0L4/hq2.jpg" x="6" y="80" width="88" height="66" preserveAspectRatio="xMidYMid slice" clip-path="url(#qf)"/>
+          <rect x="6" y="88" width="88" height="50" rx="4" fill="none" stroke="#8f897d"/>
+          <text class="m" x="50" y="160" text-anchor="middle">one frame</text>
+          <path class="ln" d="M98,113 H112"/>
+          <rect class="gx" x="116" y="88" width="88" height="50" rx="6"/><text x="160" y="118" text-anchor="middle">encoder</text>
+          <path class="ln" d="M208,113 H230"/>
+          <g fill="#2f6b4f"><rect x="238" y="100" width="6" height="26"/><rect x="247" y="92" width="6" height="34"/><rect x="256" y="108" width="6" height="18"/><rect x="265" y="96" width="6" height="30"/><rect x="274" y="104" width="6" height="22"/><rect x="283" y="90" width="6" height="36"/></g>
+          <text class="m" x="264" y="148" text-anchor="middle">embedding</text>
+          <path class="ln" d="M296,113 H322"/>
+          <rect class="bx" x="328" y="80" width="84" height="66" rx="6"/><text x="370" y="108" text-anchor="middle">FAISS</text><text class="m" x="370" y="128" text-anchor="middle">80 videos</text>
+          <path class="ln" d="M418,113 H436"/>
+          <rect class="gx" x="442" y="80" width="70" height="66" rx="6"/><text x="477" y="108" text-anchor="middle">video</text><text x="477" y="128" text-anchor="middle">+ time</text>
+          <text class="m" x="260" y="210" text-anchor="middle">example frame shown; the evaluation used Cholec80</text>
+        </svg></div></div>
+      </div>
+    </div>
+  </section>
+  <h2>M.Sc. thesis</h2>
   <!-- 3. Thesis -->
   <div class="row">
     <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=scads.ai&amp;sz=64" alt="" loading="lazy">ScaDS.AI</div><div class="res">55.2%<small>vs 34.5%, 310 bugs</small></div></div>
@@ -309,68 +463,11 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
     </div>
   </div>
 
-  <!-- 4. Retrieval -->
-  <div class="row">
-    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=nct-dresden.de&amp;sz=64" alt="" loading="lazy">NCT Dresden</div><div class="res">98%<small>top-1, sub-second</small></div></div>
-    <div>
-      <h3>Surgical video retrieval</h3><div class="where">NCT Dresden · <a href="https://gitlab.com/nct_tso_students/kptp/query-by-image-video-retrieval">code</a></div>
-      <p>Show it a single frame from an operation and it tells you which video it came from and when.</p>
-      <div class="tags">OpenCLIP · FAISS</div>
-      <div class="show single">
-        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="One frame goes through an encoder into an embedding, searched in a FAISS index of 80 videos, returning video and timestamp">
-          <rect x="10" y="86" width="66" height="54" rx="4" fill="#e9ddd6" stroke="#8f897d"/><circle cx="34" cy="108" r="9" fill="#c9a79a"/><rect x="44" y="118" width="24" height="6" fill="#9b8e86"/>
-          <text class="m" x="43" y="162" text-anchor="middle">one frame</text>
-          <path class="ln" d="M82,113 H106"/>
-          <rect class="gx" x="112" y="88" width="90" height="50" rx="6"/><text x="157" y="118" text-anchor="middle">encoder</text>
-          <path class="ln" d="M208,113 H232"/>
-          <g fill="#2f6b4f"><rect x="240" y="100" width="6" height="26"/><rect x="249" y="92" width="6" height="34"/><rect x="258" y="108" width="6" height="18"/><rect x="267" y="96" width="6" height="30"/><rect x="276" y="104" width="6" height="22"/><rect x="285" y="90" width="6" height="36"/></g>
-          <text class="m" x="266" y="148" text-anchor="middle">embedding</text>
-          <path class="ln" d="M298,113 H322"/>
-          <rect class="bx" x="328" y="80" width="84" height="66" rx="6"/><text x="370" y="108" text-anchor="middle">FAISS</text><text class="m" x="370" y="128" text-anchor="middle">80 videos</text>
-          <path class="ln" d="M418,113 H436"/>
-          <rect class="gx" x="442" y="80" width="70" height="66" rx="6"/><text x="477" y="108" text-anchor="middle">video</text><text x="477" y="128" text-anchor="middle">+ time</text>
-          <text class="m" x="260" y="210" text-anchor="middle">8,000 queries per perturbation to test robustness</text>
-        </svg></div><p class="cap"><b>How it works.</b> A foundation-model encoder turns the frame into an embedding, and a FAISS index finds its match across 80 surgery videos in under a second. I compared general and surgical encoders and three index types.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. Pretraining -->
-  <div class="row">
-    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=nct-dresden.de&amp;sz=64" alt="" loading="lazy">NCT Dresden</div><div class="res">12→44%<small>phase F1</small></div></div>
-    <div>
-      <h3>Surgical video-language pretraining</h3><div class="where">NCT Dresden</div>
-      <p>Surgeons talk while they operate in teaching videos. Can that speech replace hand labels?</p>
-      <div class="tags">SurgCLIP · TimeSformer · BERT · MS-TCN</div>
-      <div class="show" tabindex="0" aria-roledescription="slideshow" aria-label="Pretraining, step by step">
-        <div class="slide"><div class="art"><svg class="d" viewBox="0 0 520 240" role="img" aria-label="Narrated surgery videos to speech to text to 94,094 clip-caption pairs, filtered to 64,962, then contrastive training">
-          <rect class="bx" x="10" y="20" width="150" height="58" rx="6"/><text x="85" y="45" text-anchor="middle">~1,100 narrated</text><text x="85" y="66" text-anchor="middle">surgery videos</text>
-          <path class="ln" d="M166,49 H190"/>
-          <rect class="bx" x="196" y="20" width="118" height="58" rx="6"/><text x="255" y="54" text-anchor="middle">speech to text</text>
-          <path class="ln" d="M320,49 H344"/>
-          <rect class="bx" x="350" y="20" width="160" height="58" rx="6"/><text x="430" y="45" text-anchor="middle">94,094 clip-caption</text><text x="430" y="66" text-anchor="middle">pairs</text>
-          <path class="ln" d="M430,80 V118"/>
-          <rect class="gx" x="350" y="124" width="160" height="62" rx="6"/><text x="430" y="150" text-anchor="middle">filter captions</text><text class="m" x="430" y="172" text-anchor="middle">64,962 kept</text>
-          <path class="ln" d="M346,155 H310"/>
-          <rect class="bx" x="10" y="124" width="296" height="62" rx="6"/><text x="158" y="150" text-anchor="middle">contrastive training</text><text class="m" x="158" y="172" text-anchor="middle">video encoder ↔ text encoder</text>
-          <text class="m" x="260" y="220" text-anchor="middle">rebuilt from scratch: no official code existed yet</text>
-        </svg></div><p class="cap"><span class="n">1/3</span><b>Narration as supervision.</b> I rebuilt the SurgLaVi pipeline from scratch: transcribe the narration, cut it into clip-caption pairs, filter weak captions, then train video and text encoders to agree.</p></div>
-
-        <div class="slide"><div class="art"><img src="assets/img/nct/nct_loss_curves.png" alt="Training and validation loss over 14 epochs: both filtered variants reach lower loss than no filtering" loading="lazy" width="1920" height="760"></div><p class="cap"><span class="n">2/3</span><b>Cleaner data trains better.</b> Both filtered versions reach lower training and validation loss than the full, unfiltered set.</p></div>
-
-        <div class="slide"><div class="art"><svg class="c" viewBox="0 0 520 120" role="img" aria-label="Cholec80 phase F1: all clips zero-shot 8.6%, filtered clips zero-shot 12.1%, filtered plus MS-TCN 44.4%">
-          <text x="0" y="28">All 94,094 clips, zero-shot</text><rect x="205" y="16" width="47" height="16" fill="var(--grey)"/><text class="val" x="258" y="28">8.6%</text>
-          <text x="0" y="62">Filtered 64,962, zero-shot</text><rect x="205" y="50" width="66" height="16" fill="var(--grey)"/><text class="val" x="277" y="62">12.1%</text>
-          <text x="0" y="96">Filtered + MS-TCN (temporal)</text><rect x="205" y="84" width="243" height="16" fill="var(--green)"/><text class="val" x="454" y="96">44.4%</text>
-          <line x1="205" y1="8" x2="205" y2="108" stroke="var(--rule)"/>
-        </svg></div><p class="cap"><span class="n">3/3</span><b>Less data, better model, then add time.</b> 64,962 filtered clips beat all 94,094, and a temporal model on the frozen features nearly quadrupled phase F1 on Cholec80. I trained for less time than the original paper, so compare the bars rather than the absolute scores.</p></div>
-      </div>
-    </div>
-  </div>
-
+  <h2>On the side</h2>
+  <div class="cards">
   <!-- 6. PriceCast -->
-  <div class="row">
-    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=naeco.blue&amp;sz=64" alt="" loading="lazy">NAECO Blue</div><div class="res">−55%<small>error vs naive</small></div></div>
+  <article class="card wide">
+    <div class="chead"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=naeco.blue&amp;sz=64" alt="" loading="lazy">NAECO Blue</div><div class="res">−55%<small>error vs naive</small></div></div>
     <div>
       <h3>Day-ahead power price forecaster</h3><div class="where">2026 rebuild of my NAECO Blue forecasting work</div>
       <p>Tomorrow's German electricity price, hour by hour, from public grid data, built so a new model only replaces the old one if it is better.</p>
@@ -381,11 +478,11 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
         <div class="slide"><div class="art"><img src="assets/img/pricecast/pricecast_mlflow_registry.png" alt="MLflow model registry for de-lu-day-ahead-price with two versions, version 1 tagged champion" loading="lazy" width="2000" height="760"></div><p class="cap"><span class="n">3/3</span><b>Promotion gate.</b> Each trained model is registered in MLflow, and a new version only becomes the champion if it beats the current one on the backtest.</p></div>
       </div>
     </div>
-  </div>
+  </article>
 
   <!-- 7. TestForge -->
-  <div class="row">
-    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Open source</div><div class="res">92.9%<small>mutants killed</small></div></div>
+  <article class="card">
+    <div class="chead"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Open source</div><div class="res">92.9%<small>mutants killed</small></div></div>
     <div>
       <h3>TestForge</h3><div class="where"><a href="https://github.com/hass44/testforge">github.com/hass44/testforge</a></div>
       <p>An agent that writes pytest suites for untested Python code, then fixes its own failing tests until they pass.</p>
@@ -409,11 +506,11 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
         </svg></div><p class="cap"><b>The loop.</b> It reads the code's structure, writes tests, runs them in a sandbox, and repairs them from the tracebacks or starts fresh when stuck. Mutation testing then plants bugs to check that the tests catch them: 92.9% caught across 16 real modules.</p></div>
       </div>
     </div>
-  </div>
+  </article>
 
   <!-- 8. FirstSignal -->
-  <div class="row">
-    <div class="left"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Hackathon</div><div class="res">3 people<small>hackathon team</small></div></div>
+  <article class="card">
+    <div class="chead"><div class="logo"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="" loading="lazy">Hackathon</div><div class="res">3 people<small>hackathon team</small></div></div>
     <div>
       <h3>FirstSignal</h3><div class="where"><a href="https://github.com/hass44/ai-hackathon">github.com/hass44/ai-hackathon</a></div>
       <p>A diligence tool for investors that would rather say "not enough evidence" than make something up.</p>
@@ -434,6 +531,7 @@ aside{position:sticky;top:24px;align-self:start;display:grid;gap:20px}
         </svg></div><p class="cap"><b>Evidence first.</b> GitHub, the web, arXiv and uploaded documents become sourced evidence. Every claim keeps its source, contradictions stay visible, and when the evidence is thin it says so.</p></div>
       </div>
     </div>
+  </article>
   </div>
 
   <h2>Experience &amp; education</h2>
@@ -508,6 +606,46 @@ document.querySelectorAll('.show').forEach(show => {
   show.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); x0 = null; });
   go(0);
 });
+
+/* graphic-content veil: blurred until the visitor opts in (remembered per browser) */
+(() => {
+  const nct = document.getElementById('nct'), btn = document.getElementById('unveil');
+  const get = () => { try { return localStorage.getItem('show-surgical') === '1'; } catch (e) { return false; } };
+  const set = v => { try { localStorage.setItem('show-surgical', v ? '1' : '0'); } catch (e) {} };
+  const apply = show => { nct.classList.toggle('veiled', !show); btn.textContent = show ? 'Blur images' : 'Show images'; btn.setAttribute('aria-pressed', show); };
+  apply(get());
+  btn.onclick = () => { const show = nct.classList.contains('veiled'); set(show); apply(show); };
+})();
+
+/* keep-or-drop game */
+(() => {
+  const cards = [...document.querySelectorAll('#game .gc')];
+  const score = document.getElementById('gameScore');
+  let done = 0, right = 0;
+  const update = () => { score.textContent = done ? `${right} of ${done} match the filter` : ''; };
+  cards.forEach(c => {
+    const act = document.createElement('div');
+    act.className = 'act';
+    act.innerHTML = '<button data-g="keep">Keep</button><button data-g="drop">Drop</button>';
+    c.appendChild(act);
+    act.onclick = e => {
+      const g = e.target.dataset.g;
+      if (!g) return;
+      const ok = g === c.dataset.a;
+      done++; if (ok) right++;
+      c.classList.add('done', ok ? 'right' : 'wrong', 'a-' + c.dataset.a);
+      const v = document.createElement('div');
+      v.className = 'verdict';
+      v.setAttribute('aria-live', 'polite');
+      v.innerHTML = '<b>' + (c.dataset.a === 'keep' ? 'Kept' : 'Dropped') + (ok ? ' ✓' : ' (you said ' + g + ')') + '</b>';
+      v.append(c.dataset.why);
+      act.replaceWith(v);
+      update();
+    };
+  });
+  /* hide any frame YouTube no longer serves */
+  document.querySelectorAll('img[src*="i.ytimg.com"]').forEach(img => img.addEventListener('error', () => { const a = img.closest('.strip a'); (a || img).style.display = 'none'; }));
+})();
 
 /* radio: load the stream only on click */
 document.getElementById('play').onclick = () => {
